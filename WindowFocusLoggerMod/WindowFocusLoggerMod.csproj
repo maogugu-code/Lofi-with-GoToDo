@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>WindowFocusLoggerMod</AssemblyName>
+    <RootNamespace>WindowFocusLoggerMod</RootNamespace>
+    <GameRootDir Condition="'$(GameRootDir)' == ''">e:\Program Files
+      (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story</GameRootDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="BepInEx">
+      <HintPath>$(GameRootDir)\BepInEx\core\BepInEx.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(GameRootDir)\Chill With You_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(GameRootDir)\Chill With You_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>$(GameRootDir)\Chill With You_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(GameRootDir)\Chill With You_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Ookii.Dialogs.WinForms">
+      <HintPath>$(GameRootDir)\Chill With You_Data\Managed\Ookii.Dialogs.WinForms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

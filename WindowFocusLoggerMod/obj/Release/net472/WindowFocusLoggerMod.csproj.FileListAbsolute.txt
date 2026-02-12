@@ -1,0 +1,164 @@
+E:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\obj\Release\net472\WindowFocusLoggerMod.csproj.AssemblyReference.cache
+E:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\obj\Release\net472\WindowFocusLoggerMod.GeneratedMSBuildEditorConfig.editorconfig
+E:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\obj\Release\net472\WindowFocusLoggerMod.AssemblyInfoInputs.cache
+E:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\obj\Release\net472\WindowFocusLoggerMod.AssemblyInfo.cs
+E:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\obj\Release\net472\WindowFocusLoggerMod.csproj.CoreCompileInputs.cache
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\WindowFocusLoggerMod.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\WindowFocusLoggerMod.pdb
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\BepInEx.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.CoreModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\Mono.Cecil.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\MonoMod.Utils.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\0Harmony.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\netstandard.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.DSPGraphModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.AudioModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityCurlModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.ContentLoadModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.PropertiesModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.TLSModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.AndroidJNIModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.InputLegacyModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.AccessibilityModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UIModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityConnectModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.AIModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityAnalyticsModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityAnalyticsCommonModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.PerformanceReportingModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.Physics2DModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.AnimationModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.PhysicsModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.AssetBundleModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.SharedInternalsModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.TextRenderingModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.ClothModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.ClusterInputModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.ClusterRendererModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.CrashReportingModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.TilemapModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.TerrainModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.IMGUIModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.VFXModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.VideoModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.VRModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.GridModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.ImageConversionModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.SubsystemsModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.JSONSerializeModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.LocalizationModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityWebRequestModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityWebRequestAssetBundleModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityWebRequestAudioModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityWebRequestTextureModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityWebRequestWWWModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.NVIDIAModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.ParticleSystemModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.DirectorModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.VirtualTexturingModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.ScreenCaptureModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.GameCenterModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.SpriteMaskModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.StreamingModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.TerrainPhysicsModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.TextCoreFontEngineModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.TextCoreTextEngineModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.SpriteShapeModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UIElementsModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.VehiclesModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.WindModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.XRModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.ARModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.InputModule.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\MonoMod.RuntimeDetour.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\BepInEx.xml
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\MonoMod.Utils.xml
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\0Harmony.xml
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\MonoMod.RuntimeDetour.xml
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\obj\Release\net472\WindowFo.6A4DD68B.Up2Date
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\obj\Release\net472\WindowFocusLoggerMod.dll
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\obj\Release\net472\WindowFocusLoggerMod.pdb
+e:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\WindowFocusLoggerMod\bin\Release\net472\Ookii.Dialogs.WinForms.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\obj\Release\net472\WindowFocusLoggerMod.csproj.AssemblyReference.cache
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\obj\Release\net472\WindowFocusLoggerMod.GeneratedMSBuildEditorConfig.editorconfig
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\obj\Release\net472\WindowFocusLoggerMod.AssemblyInfoInputs.cache
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\obj\Release\net472\WindowFocusLoggerMod.AssemblyInfo.cs
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\obj\Release\net472\WindowFocusLoggerMod.csproj.CoreCompileInputs.cache
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\obj\Release\net472\WindowFocusLoggerMod.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\obj\Release\net472\WindowFocusLoggerMod.pdb
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\WindowFocusLoggerMod.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\WindowFocusLoggerMod.pdb
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\BepInEx.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\Ookii.Dialogs.WinForms.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.CoreModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.IMGUIModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.InputLegacyModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\Mono.Cecil.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\MonoMod.Utils.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\0Harmony.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\netstandard.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.DSPGraphModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.AudioModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityCurlModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.ContentLoadModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.PropertiesModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.TLSModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.AndroidJNIModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.AccessibilityModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UIModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityConnectModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.AIModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityAnalyticsModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityAnalyticsCommonModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.PerformanceReportingModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.Physics2DModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.AnimationModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.PhysicsModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.AssetBundleModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.SharedInternalsModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.TextRenderingModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.ClothModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.ClusterInputModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.ClusterRendererModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.CrashReportingModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.TilemapModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.TerrainModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.VFXModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.VideoModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.VRModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.GridModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.ImageConversionModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.SubsystemsModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.JSONSerializeModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.LocalizationModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityWebRequestModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityWebRequestAssetBundleModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityWebRequestAudioModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityWebRequestTextureModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UnityWebRequestWWWModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.NVIDIAModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.ParticleSystemModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.DirectorModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.VirtualTexturingModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.ScreenCaptureModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.GameCenterModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.SpriteMaskModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.StreamingModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.TerrainPhysicsModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.TextCoreFontEngineModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.TextCoreTextEngineModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.SpriteShapeModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.UIElementsModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.VehiclesModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.WindModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.XRModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.ARModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\UnityEngine.InputModule.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\MonoMod.RuntimeDetour.dll
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\BepInEx.xml
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\MonoMod.Utils.xml
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\0Harmony.xml
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\bin\Release\net472\MonoMod.RuntimeDetour.xml
+e:\PyCode\GoToDo\Windowfocus\WindowFocusLoggerMod\obj\Release\net472\WindowFo.6A4DD68B.Up2Date
