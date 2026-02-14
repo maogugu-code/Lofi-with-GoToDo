@@ -57,21 +57,61 @@ dotnet build .\WindowFocusLoggerMod\WindowFocusLoggerMod.csproj -c Release ^
 
 ---
 
-## 🚀 部署
+## 🚀 部署到游戏
 
-将 DLL 复制到游戏 BepInEx 插件目录：
+### 前置条件
+
+- 已安装 [BepInEx 5.x](https://github.com/BepInEx/BepInEx/releases)（Unity Mono 版本）
+- 游戏至少运行过一次，确保 `BepInEx\plugins\` 目录已生成
+
+### 游戏根目录
+
+Steam 默认安装路径：
 
 ```
-<游戏目录>\BepInEx\plugins\WindowFocusLoggerMod.dll
+E:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story
 ```
 
-> ⚠️ 如遇复制失败，通常是游戏正在运行占用 DLL，请先关闭游戏。
+> 可在 Steam 中右键游戏 → 管理 → 浏览本地文件 快速定位。
+
+### 部署步骤
+
+#### 方式一：从 Releases 下载（推荐）
+
+1. 前往 [GitHub Releases](https://github.com/maogugu-code/Lofi-with-GoToDo/releases) 下载最新 `WindowFocusLoggerMod.dll`
+2. 将 DLL 复制到游戏插件目录：
+
+```
+E:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\BepInEx\plugins\WindowFocusLoggerMod.dll
+```
+
+#### 方式二：从源码构建后部署
+
+1. 按上方 [🔧 构建](#-构建) 章节完成编译
+2. 复制构建产物到游戏插件目录：
+
+```bat
+copy "WindowFocusLoggerMod\bin\Release\net472\WindowFocusLoggerMod.dll" ^
+  "E:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\BepInEx\plugins\"
+```
+
+### 验证部署
+
+1. 启动游戏
+2. 查看 `BepInEx\LogOutput.log`，应包含 `[Window Focus Logger]` 的加载日志
+3. 按 **F11** 键，能打开设置面板则表示部署成功
+
+> ⚠️ 如遇复制失败，通常是游戏正在运行占用 DLL，请先关闭游戏再操作。
 
 ---
 
 ## ⚙️ 配置项
 
-配置文件位置：`<游戏目录>\BepInEx\config\com.yourname.windowfocuslogger.cfg`
+配置文件位置：
+
+```
+E:\Program Files (x86)\Steam\steamapps\common\Chill with You Lo-Fi Story\BepInEx\config\com.yourname.windowfocuslogger.cfg
+```
 
 ### Filter 分组
 
