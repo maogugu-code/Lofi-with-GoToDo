@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using BepInEx;
 using BepInEx.Bootstrap;
-using BepInEx.Configuration;
+using BepInEx.Configuration;  
 
 namespace WindowFocusLoggerMod
 {
@@ -18,9 +18,21 @@ namespace WindowFocusLoggerMod
         private float _timer;
         private ConfigEntry<string> _exeWhitelistConfig;
         private HashSet<string> _exeWhitelist;
+        private ConfigEntry<string> _exeBlacklistConfig;
+        private HashSet<string> _exeBlacklist;
+        private ConfigEntry<bool> _useBlacklistModeConfig;
         private bool _showWhitelistPanel;
         private string _whitelistEditBuffer = string.Empty;
+        private string _blacklistEditBuffer = string.Empty;
+        private string _autoPromptEditBuffer = string.Empty;
+        private string _cooldownEditBuffer = string.Empty;
         private UnityEngine.Vector2 _whitelistScroll;
+        private UnityEngine.Vector2 _blacklistScroll;
+        private UnityEngine.Vector2 _panelContentScroll;
+        private UnityEngine.Rect _settingsPanelRect = new UnityEngine.Rect(16f, 120f, 760f, 780f);
+        private bool _isResizingPanel;
+        private UnityEngine.Vector2 _resizeStartMouse;
+        private UnityEngine.Vector2 _resizeStartSize;
         private float _pomodoroCheckTimer;
         private bool _isPomodoroWorking;
         private bool _hasPomodoroState;
@@ -34,17 +46,36 @@ namespace WindowFocusLoggerMod
         // 轮询间隔，避免每帧都调用 Win32 API
         private const float PollIntervalSeconds = 0.15f;
         private const float PomodoroCheckIntervalSeconds = 0.5f;
+        private const float MinPanelWidth = 560f;
+        private const float MinPanelHeight = 420f;
+        private const float PanelResizeHandleSize = 22f;
 
         private void Awake()
         {
             _exeWhitelistConfig = Config.Bind(
                 "Filter",
                 "ExeWhitelist",
-                "explorer.exe,searchhost.exe,startmenuexperiencehost.exe,shellexperiencehost.exe,taskhostw.exe,dwm.exe,textinputhost.exe,lockapp.exe,applicationframehost.exe,ctfmon.exe,sihost.exe,runtimebroker.exe,systemsettings.exe,smartscreen.exe,taskmgr.exe,conhost.exe",
+                "chill with you.exe,explorer.exe,searchhost.exe,startmenuexperiencehost.exe,shellexperiencehost.exe,taskhostw.exe,dwm.exe,textinputhost.exe,lockapp.exe,applicationframehost.exe,ctfmon.exe,sihost.exe,runtimebroker.exe,systemsettings.exe,smartscreen.exe,taskmgr.exe,conhost.exe,msedge.exe,chrome.exe,firefox.exe,code.exe,devenv.exe,idea64.exe,pycharm64.exe,rider64.exe,webstorm64.exe,notepad++.exe,typora.exe,obsidian.exe,notion.exe,winword.exe,excel.exe,powerpnt.exe,outlook.exe,onenote.exe,wps.exe,wpscloudsvr.exe,et.exe,wpp.exe,pdfxedit.exe,acrord32.exe",
                 "EXE 白名单。面板中按“每行一个 EXE”编辑；程序会自动兼容逗号/分号/换行分隔。"
             );
 
             _exeWhitelist = BuildExeWhitelist(_exeWhitelistConfig.Value);
+
+            _exeBlacklistConfig = Config.Bind(
+                "Filter",
+                "ExeBlacklist",
+                "steam.exe,epicgameslauncher.exe,riotclientservices.exe,leagueclient.exe,leagueclientux.exe,dota2.exe,cs2.exe,valorant-win64-shipping.exe,genshinimpact.exe,honkaistarrail.exe,zenlesszonezero.exe,vrc.exe,vrchat.exe,minecraft.exe,vlc.exe,potplayer64.exe,potplayermini64.exe,mpc-hc64.exe,kodi.exe,spotify.exe,cloudmusic.exe,qqmusic.exe,bilibili.exe,tencentvideo.exe,youku.exe,iqiyiapp.exe",
+                "EXE 黑名单。仅在黑名单模式下生效，命中这些进程才会被识别为干扰。"
+            );
+
+            _exeBlacklist = BuildExeWhitelist(_exeBlacklistConfig.Value);
+
+            _useBlacklistModeConfig = Config.Bind(
+                "Filter",
+                "UseBlacklistMode",
+                true,
+                "false=白名单模式（非白名单视为干扰）；true=黑名单模式（命中黑名单视为干扰）。"
+            );
 
             _autoTriggerAiChatConfig = Config.Bind(
                 "AIChat",
@@ -56,7 +87,7 @@ namespace WindowFocusLoggerMod
             _autoTriggerCooldownSecondsConfig = Config.Bind(
                 "AIChat",
                 "AutoTriggerCooldownSeconds",
-                20f,
+                600f,
                 "自动触发冷却时间（秒），避免短时间内频繁触发。"
             );
 
@@ -73,8 +104,15 @@ namespace WindowFocusLoggerMod
                 Logger.LogInfo($"EXE 白名单已更新，共 {_exeWhitelist.Count} 项");
             };
 
+            _exeBlacklistConfig.SettingChanged += (_, __) =>
+            {
+                _exeBlacklist = BuildExeWhitelist(_exeBlacklistConfig.Value);
+                Logger.LogInfo($"EXE 黑名单已更新，共 {_exeBlacklist.Count} 项");
+            };
+
             Logger.LogInfo("Window Focus Logger 已加载");
             Logger.LogInfo($"EXE 白名单已加载，共 {_exeWhitelist.Count} 项");
+            Logger.LogInfo($"EXE 黑名单已加载，共 {_exeBlacklist.Count} 项");
         }
 
         private void Update()
@@ -159,6 +197,9 @@ namespace WindowFocusLoggerMod
                 if (_showWhitelistPanel)
                 {
                     _whitelistEditBuffer = ConvertConfigToEditorText(_exeWhitelistConfig.Value);
+                    _blacklistEditBuffer = ConvertConfigToEditorText(_exeBlacklistConfig.Value);
+                    _autoPromptEditBuffer = _autoTriggerPromptTemplateConfig.Value ?? string.Empty;
+                    _cooldownEditBuffer = _autoTriggerCooldownSecondsConfig.Value.ToString("0.##");
                 }
 
                 Logger.LogInfo(_showWhitelistPanel
@@ -221,7 +262,7 @@ namespace WindowFocusLoggerMod
             }
 
             string exeName = processName + ".exe";
-            if (IsExeWhitelisted(exeName))
+            if (!ShouldTreatAsDistraction(exeName))
                 return;
 
             IntPtr focusControlHwnd = IntPtr.Zero;
@@ -238,8 +279,9 @@ namespace WindowFocusLoggerMod
                 }
             }
 
+            string modeText = _useBlacklistModeConfig.Value ? "命中黑名单" : "非白名单";
             Logger.LogInfo(
-                $"焦点窗口变更(非白名单) -> Title: \"{resolvedTitle}\", Exe: \"{exeName}\", Process: \"{processName}\" (PID: {foregroundPid}), MouseTopTitle: \"{mouseTitle}\", ForegroundTitle: \"{foregroundTitle}\", ChildHwnd: 0x{childHwnd.ToInt64():X}, MouseTopHwnd: 0x{mouseTopLevelHwnd.ToInt64():X}, ForegroundHwnd: 0x{foregroundHwnd.ToInt64():X}, FocusControlHwnd: 0x{focusControlHwnd.ToInt64():X}, MousePID: {mousePid}");
+                $"焦点窗口变更({modeText}) -> Title: \"{resolvedTitle}\", Exe: \"{exeName}\", Process: \"{processName}\" (PID: {foregroundPid}), MouseTopTitle: \"{mouseTitle}\", ForegroundTitle: \"{foregroundTitle}\", ChildHwnd: 0x{childHwnd.ToInt64():X}, MouseTopHwnd: 0x{mouseTopLevelHwnd.ToInt64():X}, ForegroundHwnd: 0x{foregroundHwnd.ToInt64():X}, FocusControlHwnd: 0x{focusControlHwnd.ToInt64():X}, MousePID: {mousePid}");
 
             TryTriggerAiChatInPomodoro(resolvedTitle, exeName);
         }
@@ -385,6 +427,22 @@ namespace WindowFocusLoggerMod
             return _exeWhitelist.Contains(NormalizeExeName(exeName));
         }
 
+        private bool IsExeBlacklisted(string exeName)
+        {
+            if (_exeBlacklist == null || _exeBlacklist.Count == 0)
+                return false;
+
+            return _exeBlacklist.Contains(NormalizeExeName(exeName));
+        }
+
+        private bool ShouldTreatAsDistraction(string exeName)
+        {
+            if (_useBlacklistModeConfig.Value)
+                return IsExeBlacklisted(exeName);
+
+            return !IsExeWhitelisted(exeName);
+        }
+
         private static string NormalizeExeName(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
@@ -414,41 +472,136 @@ namespace WindowFocusLoggerMod
             if (!_showWhitelistPanel)
                 return;
 
-            const float panelWidth = 760f;
-            const float panelHeight = 520f;
-            var rect = new UnityEngine.Rect(
-                (UnityEngine.Screen.width - panelWidth) * 0.5f,
-                (UnityEngine.Screen.height - panelHeight) * 0.5f,
-                panelWidth,
-                panelHeight);
+            _settingsPanelRect.x = 16f;
+            _settingsPanelRect.y = UnityEngine.Mathf.Clamp(_settingsPanelRect.y, 8f, UnityEngine.Mathf.Max(8f, UnityEngine.Screen.height - _settingsPanelRect.height - 8f));
 
-            UnityEngine.GUI.Box(rect, "Window Focus Logger - EXE 白名单设置");
+            var currentEvent = UnityEngine.Event.current;
+            var resizeHandleRect = new UnityEngine.Rect(
+                _settingsPanelRect.xMax - PanelResizeHandleSize - 6f,
+                _settingsPanelRect.yMax - PanelResizeHandleSize - 6f,
+                PanelResizeHandleSize,
+                PanelResizeHandleSize);
 
-            UnityEngine.GUILayout.BeginArea(new UnityEngine.Rect(rect.x + 12f, rect.y + 32f, rect.width - 24f, rect.height - 44f));
+            if (currentEvent != null)
+            {
+                if (currentEvent.type == UnityEngine.EventType.MouseDown &&
+                    currentEvent.button == 1 &&
+                    currentEvent.control &&
+                    resizeHandleRect.Contains(currentEvent.mousePosition))
+                {
+                    _isResizingPanel = true;
+                    _resizeStartMouse = currentEvent.mousePosition;
+                    _resizeStartSize = new UnityEngine.Vector2(_settingsPanelRect.width, _settingsPanelRect.height);
+                    currentEvent.Use();
+                }
+
+                if (_isResizingPanel && currentEvent.button == 1 && currentEvent.type == UnityEngine.EventType.MouseDrag)
+                {
+                    var delta = currentEvent.mousePosition - _resizeStartMouse;
+                    _settingsPanelRect.width = UnityEngine.Mathf.Clamp(_resizeStartSize.x + delta.x, MinPanelWidth, UnityEngine.Screen.width - 24f);
+                    _settingsPanelRect.height = UnityEngine.Mathf.Clamp(_resizeStartSize.y + delta.y, MinPanelHeight, UnityEngine.Screen.height - 16f);
+                    currentEvent.Use();
+                }
+
+                if (_isResizingPanel &&
+                    (currentEvent.type == UnityEngine.EventType.MouseUp || currentEvent.rawType == UnityEngine.EventType.MouseUp) &&
+                    currentEvent.button == 1)
+                {
+                    _isResizingPanel = false;
+                    currentEvent.Use();
+                }
+            }
+
+            UnityEngine.GUI.Box(_settingsPanelRect, "Window Focus Logger - 自动触发与白名单设置");
+
+            UnityEngine.GUILayout.BeginArea(new UnityEngine.Rect(_settingsPanelRect.x + 12f, _settingsPanelRect.y + 32f, _settingsPanelRect.width - 24f, _settingsPanelRect.height - 44f));
+            _panelContentScroll = UnityEngine.GUILayout.BeginScrollView(_panelContentScroll, UnityEngine.GUILayout.ExpandHeight(true));
             UnityEngine.GUILayout.Label("说明：白名单内进程不会输出焦点日志。每行一个 EXE，例如：explorer.exe");
             UnityEngine.GUILayout.Label("快捷键：F11 打开/关闭面板");
+            UnityEngine.GUILayout.Label("面板缩放：按住 Ctrl + 鼠标右键，在右下角拖拽");
+            UnityEngine.GUILayout.Space(8f);
 
-            _whitelistScroll = UnityEngine.GUILayout.BeginScrollView(_whitelistScroll, UnityEngine.GUILayout.Height(350f));
+            bool useBlacklistMode = UnityEngine.GUILayout.Toggle(
+                _useBlacklistModeConfig.Value,
+                "使用黑名单模式（命中黑名单才视为干扰；关闭则为白名单模式）");
+            if (useBlacklistMode != _useBlacklistModeConfig.Value)
+            {
+                _useBlacklistModeConfig.Value = useBlacklistMode;
+                _useBlacklistModeConfig.ConfigFile.Save();
+                Logger.LogInfo($"过滤模式已更新：{(useBlacklistMode ? "黑名单" : "白名单")}");
+            }
+
+            UnityEngine.GUILayout.Label($"当前过滤模式：{(_useBlacklistModeConfig.Value ? "黑名单模式" : "白名单模式")}");
+            UnityEngine.GUILayout.Space(6f);
+
+            bool autoTriggerEnabled = UnityEngine.GUILayout.Toggle(_autoTriggerAiChatConfig.Value, "创作中且焦点位于非白名单时，自动触发 AIChat");
+            if (autoTriggerEnabled != _autoTriggerAiChatConfig.Value)
+            {
+                _autoTriggerAiChatConfig.Value = autoTriggerEnabled;
+                _autoTriggerAiChatConfig.ConfigFile.Save();
+                Logger.LogInfo($"自动触发 AIChat 开关已更新: {autoTriggerEnabled}");
+            }
+
+            UnityEngine.GUILayout.Space(4f);
+            UnityEngine.GUILayout.Label("自动触发提示词模板（支持 {title}、{exe} 占位符）:");
+            _autoPromptEditBuffer = UnityEngine.GUILayout.TextArea(_autoPromptEditBuffer, UnityEngine.GUILayout.Height(72f));
+
+            UnityEngine.GUILayout.Space(4f);
+            UnityEngine.GUILayout.Label("冷却 CD（秒）: 默认 600");
+            _cooldownEditBuffer = UnityEngine.GUILayout.TextField(_cooldownEditBuffer, UnityEngine.GUILayout.Height(24f));
+            UnityEngine.GUILayout.Label($"当前生效冷却: {_autoTriggerCooldownSecondsConfig.Value:0.##} 秒");
+            UnityEngine.GUILayout.Space(8f);
+
+            UnityEngine.GUILayout.Label("白名单（白名单模式下：不视为干扰）");
+            _whitelistScroll = UnityEngine.GUILayout.BeginScrollView(_whitelistScroll, UnityEngine.GUILayout.Height(170f));
             _whitelistEditBuffer = UnityEngine.GUILayout.TextArea(_whitelistEditBuffer, UnityEngine.GUILayout.ExpandHeight(true));
+            UnityEngine.GUILayout.EndScrollView();
+
+            UnityEngine.GUILayout.Space(6f);
+            UnityEngine.GUILayout.Label("黑名单（黑名单模式下：视为干扰）");
+            _blacklistScroll = UnityEngine.GUILayout.BeginScrollView(_blacklistScroll, UnityEngine.GUILayout.Height(170f));
+            _blacklistEditBuffer = UnityEngine.GUILayout.TextArea(_blacklistEditBuffer, UnityEngine.GUILayout.ExpandHeight(true));
             UnityEngine.GUILayout.EndScrollView();
 
             UnityEngine.GUILayout.BeginHorizontal();
             if (UnityEngine.GUILayout.Button("保存并应用", UnityEngine.GUILayout.Height(32f)))
             {
                 _exeWhitelistConfig.Value = ConvertEditorTextToConfig(_whitelistEditBuffer);
+                _exeBlacklistConfig.Value = ConvertEditorTextToConfig(_blacklistEditBuffer);
+
+                string promptTemplate = string.IsNullOrWhiteSpace(_autoPromptEditBuffer)
+                    ? "我正在创作中，被窗口 {title}（{exe}）分心了，请提醒我回到创作。"
+                    : _autoPromptEditBuffer.Trim();
+                _autoTriggerPromptTemplateConfig.Value = promptTemplate;
+
+                float cooldown = 600f;
+                if (!float.TryParse(_cooldownEditBuffer, out cooldown) || cooldown < 0f)
+                    cooldown = 600f;
+                _autoTriggerCooldownSecondsConfig.Value = cooldown;
+                _cooldownEditBuffer = cooldown.ToString("0.##");
+                _autoTriggerCooldownTimer = 0f;
+
                 _exeWhitelistConfig.ConfigFile.Save();
-                Logger.LogInfo("白名单已保存并应用");
+                Logger.LogInfo($"配置已保存并应用：模式 {(_useBlacklistModeConfig.Value ? "黑名单" : "白名单")}, 白名单 {_exeWhitelist.Count} 项, 黑名单 {_exeBlacklist.Count} 项, 冷却 {cooldown:0.##} 秒，当前冷却已重置");
             }
 
             if (UnityEngine.GUILayout.Button("恢复当前配置", UnityEngine.GUILayout.Height(32f)))
             {
                 _whitelistEditBuffer = ConvertConfigToEditorText(_exeWhitelistConfig.Value);
+                _blacklistEditBuffer = ConvertConfigToEditorText(_exeBlacklistConfig.Value);
+                _autoPromptEditBuffer = _autoTriggerPromptTemplateConfig.Value ?? string.Empty;
+                _cooldownEditBuffer = _autoTriggerCooldownSecondsConfig.Value.ToString("0.##");
                 Logger.LogInfo("已恢复为当前配置内容");
             }
 
-            if (UnityEngine.GUILayout.Button("选择 EXE 并追加", UnityEngine.GUILayout.Height(32f)))
+            if (UnityEngine.GUILayout.Button("选择 EXE 追加到白名单", UnityEngine.GUILayout.Height(32f)))
             {
-                AppendExeByFileDialog();
+                AppendExeByFileDialog(false);
+            }
+
+            if (UnityEngine.GUILayout.Button("选择 EXE 追加到黑名单", UnityEngine.GUILayout.Height(32f)))
+            {
+                AppendExeByFileDialog(true);
             }
 
             if (UnityEngine.GUILayout.Button("关闭", UnityEngine.GUILayout.Height(32f)))
@@ -457,10 +610,13 @@ namespace WindowFocusLoggerMod
             }
             UnityEngine.GUILayout.EndHorizontal();
 
+            UnityEngine.GUILayout.EndScrollView();
             UnityEngine.GUILayout.EndArea();
+
+            UnityEngine.GUI.Box(resizeHandleRect, "⇲");
         }
 
-        private void AppendExeByFileDialog()
+        private void AppendExeByFileDialog(bool appendToBlacklist)
         {
             try
             {
@@ -481,15 +637,23 @@ namespace WindowFocusLoggerMod
                     if (string.IsNullOrWhiteSpace(exe))
                         return;
 
-                    var set = BuildExeWhitelist(_whitelistEditBuffer);
+                    var set = BuildExeWhitelist(appendToBlacklist ? _blacklistEditBuffer : _whitelistEditBuffer);
                     if (set.Add(exe))
                     {
-                        _whitelistEditBuffer = string.Join(Environment.NewLine, set);
-                        Logger.LogInfo($"已追加 EXE 到白名单编辑区: {exe}");
+                        if (appendToBlacklist)
+                        {
+                            _blacklistEditBuffer = string.Join(Environment.NewLine, set);
+                            Logger.LogInfo($"已追加 EXE 到黑名单编辑区: {exe}");
+                        }
+                        else
+                        {
+                            _whitelistEditBuffer = string.Join(Environment.NewLine, set);
+                            Logger.LogInfo($"已追加 EXE 到白名单编辑区: {exe}");
+                        }
                     }
                     else
                     {
-                        Logger.LogInfo($"EXE 已存在于白名单编辑区: {exe}");
+                        Logger.LogInfo($"EXE 已存在于{(appendToBlacklist ? "黑名单" : "白名单")}编辑区: {exe}");
                     }
                 }
             }

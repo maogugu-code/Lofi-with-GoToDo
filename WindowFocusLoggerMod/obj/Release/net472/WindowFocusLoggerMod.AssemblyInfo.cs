@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WindowFocusLoggerMod")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+901e07005c93f90ba8d7684f9457071c734c993d")]
 [assembly: System.Reflection.AssemblyProductAttribute("WindowFocusLoggerMod")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WindowFocusLoggerMod")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
